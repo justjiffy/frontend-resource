@@ -5,18 +5,14 @@ var Category = require('../models/category.js');
 
 postsController.get('/', function(req, res) {
 	Post.findAsync({}).then(function(posts) {
-		res.render('index.ejs', {
-			posts: posts
-		});
+		res.render('index.ejs', { posts: posts });
 	}).catch();
 });
 
 //FOR SHOWING CATEGORIES....!
 postsController.get('/cat_view', function(req, res) {
 	Category.findAsync({}).then(function(categories) {
-		res.render('cat_view.ejs', {
-			categories: categories
-		});
+		res.render('cat_view.ejs', { categories: categories });
 	}).catch();
 });
 
@@ -28,7 +24,9 @@ postsController.get('/show/:id', function(req, res){
 });
 
 postsController.get('/new', function(req, res) {
-	res.render('new.ejs');
+	Category.findAsync({}).then(function(categories) {
+		res.render('new.ejs', { categories: categories });
+	}).catch();
 });
 
 

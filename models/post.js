@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var categoryMod = require('./category.js');
 // var category = categoryMod.categorySchema;
+var Schema = mongoose.Schema;
 
 var postSchema = mongoose.Schema({
 	name: String,
@@ -9,7 +10,7 @@ var postSchema = mongoose.Schema({
 	post: String,
 	link: String,
 	rating: Number,
-	category: [],
+	categories: [{type: Schema.Types.ObjectId, ref: 'Category'}],
 });
 
 var Post = mongoose.model('Post', postSchema);

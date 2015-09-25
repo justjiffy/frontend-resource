@@ -24,10 +24,11 @@
 
 	<label name='title'>Category</label>
 	<select>
-		<option value="1" selected="selected"></option>
-        <option value="2">Dog</option>
-        <option value="3">Poop</option>
-        <option value="4">How to Loop</option>
+
+		<% for(var i=0; i<categories.length; i++) { %>
+			<option value="<%=i+1%>"><%=categories[i].name %>&nbsp;</option>
+		<% } %>
+
 	</select>
 
 	<input type='submit' value='Register'>
