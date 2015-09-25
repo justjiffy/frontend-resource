@@ -1,0 +1,14 @@
+<h1> THE CATEGORIES!!! </h1>
+
+<table>
+<tbody>
+
+<% for(var i=0; i<categories.length; i++) { %>
+<tr>
+	<td>Category<%= i+1 %>&nbsp;</td>
+	<td><%= categories[i].name %></td>
+</tr>
+<% } %>
+
+</tbody>
+</table>

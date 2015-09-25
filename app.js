@@ -6,7 +6,7 @@ var router = express.Router();
 var dbConfig = require('./db/config.js');
 // var mongoose = require('mongoose');
 
-var userController = require('./controllers/users.js');
+var postController = require('./controllers/posts.js');
 
 var Promise = require('bluebird');
 var mongoose = Promise.promisifyAll(require('mongoose'));
@@ -14,7 +14,7 @@ var mongoose = Promise.promisifyAll(require('mongoose'));
 //TELLING APP.JS THAT WE'RE USING THE ROUTES DIR
 app.use(require('./node_modules/body-parser').urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
-app.use('/', userController);
+app.use('/', postController);
 
 switch(app.get('env')) {
 	case 'development':

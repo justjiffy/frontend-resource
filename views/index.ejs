@@ -1,0 +1,17 @@
+<h1> INDEX!!! </h1>
+
+<table>
+<tbody>
+
+<% for(var i=0; i<posts.length; i++) { %>
+<tr>
+	<td>Post<%= i+1 %>&nbsp;</td>
+	<td><%= posts[i].title %></td>
+<!-- 	<td><a href='/show/<%= posts[i].post %>'>Posts</a></td>
+ -->
+
+</tr>
+<% } %>
+
+</tbody>
+</table>
