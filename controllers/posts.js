@@ -9,14 +9,6 @@ postsController.get('/', function(req, res) {
 	}).catch();
 });
 
-//FOR SHOWING CATEGORIES....!
-postsController.get('/cat_view', function(req, res) {
-	Category.findAsync({}).then(function(categories) {
-		res.render('cat_view.ejs', { categories: categories });
-	}).catch();
-});
-
-
 postsController.get('/show/:id', function(req, res){
 	Post.findByIdAsync(req.params.id).then(function(post){
 		res.render('show.ejs', { post: post });
@@ -27,21 +19,6 @@ postsController.get('/new', function(req, res) {
 	Category.findAsync({}).then(function(categories) {
 		res.render('new.ejs', { categories: categories });
 	}).catch();
-});
-
-
-postsController.get('/cat_new', function(req, res) {
-	res.render('cat_new.ejs');
-});
-
-postsController.post('/create', function(req, res) {
-	Category.createAsync({name: req.body.name }).then(function() {
-		res.redirect(303, '/');
-	})
-	.catch(function(err) {
-		console.log('error: ' + err);
-		res.redirect(303, '/new');
-	});
 });
 
 postsController.post('/create', function(req, res) {

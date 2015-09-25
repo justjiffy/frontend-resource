@@ -7,6 +7,7 @@ var dbConfig = require('./db/config.js');
 // var mongoose = require('mongoose');
 
 var postController = require('./controllers/posts.js');
+var categoryController = require('./controllers/categories.js');
 
 var Promise = require('bluebird');
 var mongoose = Promise.promisifyAll(require('mongoose'));
@@ -15,6 +16,8 @@ var mongoose = Promise.promisifyAll(require('mongoose'));
 app.use(require('./node_modules/body-parser').urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use('/', postController);
+app.use('/cat', categoryController);
+
 
 switch(app.get('env')) {
 	case 'development':
